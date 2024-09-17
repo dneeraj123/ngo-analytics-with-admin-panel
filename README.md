@@ -2,9 +2,14 @@
 
 This is a NGO statistics app having admin panel, custom user roles and uses Angular in Frontend. Back end is separately designed and is in spring boot.
 
+## Project Succes
+
+This project was sucesfully used by over 1000 people in production and the NGO successfully carried out the tasks with the help of this application.
+
 ## Description
 
-This project includes reports and dashboards to track how many villages,mandals,nagars and vastis we reached. It also keeps record of number of families reached and number of karyakartas participated
+This project includes reports and dashboards to track how many geographical areas were reached. It also keeps record of number of families reached and number of coordinators participated.
+
 
 ## Development server
 
