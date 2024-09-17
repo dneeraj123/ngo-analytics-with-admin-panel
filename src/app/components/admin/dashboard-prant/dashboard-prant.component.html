@@ -1,0 +1,278 @@
+<div class="container custom-container">
+
+  <div class="card" style="padding: 15px;">
+
+  <div class="row" style="margin-left: 9px;" 
+  *ngIf="!this.currUser.district">
+    <div class="form-group">
+      <label for="sel1">Select a District</label>
+        <select class="form-control" id="selectdistrict" [(ngModel)]="currDistrict" (change)="onDistrictChange()">
+        <option *ngFor="let d of districtList" [ngValue]="d">{{d.name}}</option>
+      </select>
+    </div>
+  </div>
+
+<div class="row">
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <h4>District: {{currDistrict.name}}</h4>
+    <p>Id: {{currDistrict.id}}</p>
+    <p>Vibhag: {{currDistrict.vibhag.name}}</p>    
+  </div>
+</div>
+
+  <div>
+    <h4>Villages Reached Progress ( {{currDistrict.name}} )</h4>
+  </div>
+
+  <div class="progress" style="width: 50%; height: 30px;">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" #progressBar 
+    aria-valuenow="0" 
+    style="width: 0%; color: black;" 
+    aria-valuemin="0" aria-valuemax="100"
+    [style.background-color]="'rgb('+ getColor() + ')'">
+    {{complete + '%'}}
+    </div>
+  </div>
+
+<br>
+
+  <div>
+    <h4>Vasti Reached Progress ( {{currDistrict.name}} )</h4>
+  </div>
+
+  <div class="progress" style="width: 50%; height: 30px;">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" #progressBar1 
+    aria-valuenow="0" 
+    style="width: 0%; color: black;" 
+    aria-valuemin="0" aria-valuemax="100"
+    [style.background-color]="'rgb('+ getColorVasti() + ')'">
+    {{completeVasti + '%'}}
+    </div>
+  </div>
+
+
+
+
+
+
+  <br>
+  <br>
+
+<div class="row">
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-globe text-warning"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Total Villages</p>
+              <p class="card-title" style="font-size: 20px;">
+                {{villageCount}}
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+        <i class="fa fa-clock-o"></i> Latest Data  
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-globe text-warning"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Villages Reached</p>
+              <p class="card-title" style="font-size: 20px;">
+                {{ coveredVillageCount}}
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+        <i class="fa fa-clock-o"></i> Latest Data  
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-globe text-warning"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Total Vastis</p>
+              <p class="card-title" style="font-size: 20px;">
+                {{vastiCount}}
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+        <i class="fa fa-clock-o"></i> Latest Data  
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-globe text-warning"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Vastis Reached</p>
+              <p class="card-title" style="font-size: 20px;">
+                {{coveredVastiCount}}
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+        <i class="fa fa-clock-o"></i> Latest Data  
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+
+
+
+</div>
+
+<div class="row">
+
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-globe text-warning"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Families Reached</p>
+              <p class="card-title" style="font-size: 20px;">
+                {{familyReached*1 + familyReachedVasti*1}}
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+        <i class="fa fa-clock-o"></i> Latest Data  
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-globe text-warning"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Karyakartas Involved</p>
+              <p class="card-title" style="font-size: 20px;">
+                {{karyakartasParticipated*1 + karyakartasParticipatedVasti*1}}
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+        <i class="fa fa-clock-o"></i> Latest Data  
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+</div>
+
+
+<div class="col-md-12">
+      <div class="card card-chart">
+        <div class="card-header">
+          <h5 class="card-title">
+              Families covered vs Date ( {{currDistrict.name}} )        
+          </h5>
+<!--          <p class="card-category">Line Chart with Points</p>   -->
+          <div id="chartArealine" style="margin: 10px;"></div>
+        </div>
+        <div class="card-body">
+          <canvas id="line"></canvas>
+        </div>
+        <div class="card-footer">
+         
+          <hr/>
+          <div class="card-stats">
+<!--          <button type="button" (click)="getCalls()">
+              <i class="fa fa-refresh"></i>  
+          </button>
+            Update Now
+-->          </div>
+        </div>
+      </div>
+</div>
+  
+
+
+
+
+</div>
+
+</div>

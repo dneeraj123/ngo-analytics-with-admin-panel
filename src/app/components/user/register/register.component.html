@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="card card-container">
+     <img id="profile-img" class="profile-img-card" src="assets/imgs/ram.jpg" />
+
+      <form name="form-signup" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+      
+        <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+      
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+          <label for="name">Full Name</label>
+          <input type="text" class="form-control input-text-custom" id="name" name="name" [(ngModel)]="user.name" #name="ngModel" required />
+          <div *ngIf="f.submitted && !name.valid" class="help-block">An valid name is required.</div>
+        </div>
+      
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+        <label for="username">Username</label>
+        <input type="text" class="form-control input-text-custom" id="username" name="username" [(ngModel)]="user.username" #username="ngModel" required />
+        <div *ngIf="f.submitted && !username.valid" class="help-block">An valid username is required.</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+        <label for="password">Password</label>
+        <input type="password" class="form-control input-text-custom" id="password" name="password" [(ngModel)]="user.password" #password="ngModel" required />
+        <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required.</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !role.valid }">
+        <label for="role" class="control-label">Role</label>
+        <select type="text" class="form-control" 
+        #role="ngModel"
+        id="role" name="role" 
+        [(ngModel)]="user.role"
+        (change)="onRoleChange()"
+        >
+        <option *ngFor="let r of roleList" [ngValue]="r">{{ r }}
+        </option>
+      </select>
+     </div>
+
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !district.valid }" *ngIf="user.role=='USER' || user.role=='TALUKA' || user.role=='NAGAR'">
+        <label for="district" class="control-label">District</label>
+        <select type="text" class="form-control" 
+        #district="ngModel"
+        id="district" name="district" 
+        [(ngModel)]="user.district"
+        (change)="onDistrictChange()"
+        >
+        <option *ngFor="let d of districtList" [ngValue]="d">{{ d.name }}
+        </option>
+      </select>
+     </div>
+
+
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !taluka.valid }" *ngIf="user.role=='TALUKA'">
+        <label for="taluka" class="control-label">Taluka</label>
+        <select type="text" class="form-control" 
+        #taluka="ngModel"
+        id="taluka" name="taluka" 
+        [(ngModel)]="user.taluka"
+        >
+        <option *ngFor="let t of talukaList" [ngValue]="t">{{ t.name }}
+        </option>
+      </select>
+     </div>
+
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !nagar.valid }" *ngIf="user.role=='NAGAR'">
+        <label for="nagar" class="control-label">Nagar</label>
+        <select type="text" class="form-control" 
+        #nagar="ngModel"
+        id="nagar" name="nagar" 
+        [(ngModel)]="user.nagar"
+        >
+        <option *ngFor="let n of nagarList" [ngValue]="n">{{ n.name }}
+        </option>
+      </select>
+     </div>
+
+     <br>
+
+      <button class="btn btn-lg btn-primary btn-block btn-signin form-submit-button" type="submit">Sign Up</button>
+    </form><!-- /form -->
+      <a [routerLink]="['/login']" class="btn btn-link">I have Account!</a>
+  </div><!-- /card-container -->
+</div><!-- /container -->

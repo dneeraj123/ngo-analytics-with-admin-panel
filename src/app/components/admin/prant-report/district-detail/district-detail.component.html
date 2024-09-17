@@ -1,0 +1,172 @@
+<div class="card" style="padding: 15px;">
+
+<div class="row">
+
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card-stats" 
+        [style.background-color]="'rgb('+ getColor() + ')'">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-11 col-md-12">
+            <div class="numbers">
+              <p class="card-category"></p>
+              <p class="card-title" style="font-size: 20px;">
+                {{currDistrict.name}}
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>    
+
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <!--<div class="col-4 col-md-3">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-globe text-warning"></i>
+            </div>
+          </div>
+          -->
+          <div class="col-11 col-md-12">
+            <div class="numbers">
+              <p class="card-category">Villages</p>
+              <p class="card-title" style="font-size: 20px;">
+                Total :  {{ villageCount }}
+                <br>
+                Reach: {{ coveredVillageCount }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card-stats">
+      <div class="card-body ">
+        <div class="row">
+         <!-- <div class="col-4 col-md-3">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-globe text-warning"></i>
+            </div>
+          </div>
+        -->
+          <div class="col-11 col-md-12">
+            <div class="numbers">
+              <p class="card-category">Vastis</p>
+              <p class="card-title" style="font-size: 20px;">
+                Total :  {{ vastiCount }}
+                <br>
+                Reach: {{ coveredVastiCount }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card-stats">
+      <div class="card-body ">
+        <div class="row">
+         <!-- <div class="col-4 col-md-3">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-globe text-warning"></i>
+            </div>
+          </div>
+        -->
+          <div class="col-11 col-md-12">
+            <div class="numbers">
+              <p class="card-category">Mandals</p>
+              <p class="card-title" style="font-size: 20px;">
+                Total :  {{ mandalCount }}
+                <br>
+                Reach: {{ coveredMandalCount }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="row">
+
+<div class="col-lg-3 col-md-6 col-sm-6">
+</div>
+
+<div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card-stats">
+      <div class="card-body ">
+        <div class="row">
+         <!-- <div class="col-4 col-md-3">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-globe text-warning"></i>
+            </div>
+          </div>
+        -->
+          <div class="col-11 col-md-12">
+            <div class="numbers">
+              <p class="card-category">Nagar</p>
+              <p class="card-title" style="font-size: 20px;">
+                Total :  {{ nagarCount }}
+                <br>
+                Reach: {{ coveredNagarCount }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card-stats" >
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-11 col-md-12">
+            <div class="numbers">
+              <p class="card-category">Families Reached</p>
+              <p class="card-title" style="font-size: 20px;">
+                {{familyReached*1 + familyReachedVasti*1}}
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>    
+
+<div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card-stats" >
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-11 col-md-12">
+            <div class="numbers">
+              <p class="card-category">Karyakartas Involved</p>
+              <p class="card-title" style="font-size: 20px;">
+                {{karyakartasParticipated*1 + karyakartasParticipatedVasti*1}}
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>    
+
+</div>
+
+</div>
+

@@ -1,0 +1,220 @@
+<div class="container custom-container">
+ <!-- <div class="card-deck">
+    <div class="card" style="width: 18rem;">
+      <div class="custom-brand"><span class="glyphicon glyphicon-user"></span></div>
+      <div class="card-body">
+        <h5 class="card-title">Total Users</h5>
+        <p class="card-text">The number of users from beginning to today is <strong>{{userCount}}</strong>.</p>
+        <a href="/user-list" class="btn btn-primary btn-custom-link">Detail</a>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+      <div class="custom-brand"><span class="glyphicon glyphicon-qrcode"></span></div>
+      <div class="card-body">
+        <h5 class="card-title">Total Products</h5>
+        <p class="card-text">The number of products from beginning to today is <strong>{{productCount}}</strong>.</p>
+        <a href="/product-list" class="btn btn-primary btn-custom-link">Detail</a>
+      </div>
+    </div>
+
+
+    <div class="card" style="width: 18rem;">
+      <div class="custom-brand"><span class="glyphicon glyphicon-usd"></span></div>
+      <div class="card-body">
+        <h5 class="card-title">Total Purchases</h5>
+        <p class="card-text">The number of purchases from beginning to today is <strong>{{transactionCount}}</strong>.</p>
+        <a href="/transaction-list" class="btn btn-primary btn-custom-link">Detail</a>
+      </div>
+    </div>
+  </div>
+-->
+
+
+
+<!--  <div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center">
+                <img src="../../../../assets/imgs/village.jpg" 
+                style="width:50px; height:50px" class="nc-icontext-success">
+              </div>
+            </div>
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">Villages Covered </p>
+                <p class="card-title" style="font-size: 18px;">
+
+                  {{  coveredVillagesPerDistrict +"/"+ villageCount  }} </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+-->
+
+  <div *ngIf="dataSource2">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col col-xs-6">
+            <h3 class="panel-title">Taluka Report Till Date</h3>
+          </div>
+          <div class="col col-xs-6 text-right">
+          
+          <button mat-button 
+          style="margin: 5px; padding: 5px;" 
+          (click)="exporter2.exportTable('csv')">
+          Export
+          </button>            
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card-body">
+        <table mat-table [dataSource]="dataSource2" matSort
+        matTableExporter
+        #exporter2="matTableExporter">
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Taluka Name</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+          </ng-container>
+
+     
+          <ng-container matColumnDef="district">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>District Id</th>
+            <td mat-cell *matCellDef="let element">{{element.district}}</td>
+          </ng-container>
+
+    
+       <ng-container matColumnDef="prant">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Pranta</th>
+            <td mat-cell *matCellDef="let element">{{element.prant}}</td>
+       </ng-container>
+
+       <ng-container matColumnDef="families">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Families</th>
+            <td mat-cell *matCellDef="let element">{{element.families}}</td>
+       </ng-container>
+
+       <ng-container matColumnDef="karyakartas">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Karyakartas</th>
+            <td mat-cell *matCellDef="let element">{{element.karyakartas}}</td>
+       </ng-container>
+
+       <ng-container matColumnDef="village">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Villages Reached</th>
+            <td mat-cell *matCellDef="let element">{{element.village}}</td>
+       </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="dataSource3">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col col-xs-6">
+            <h3 class="panel-title">Nagar Report Till Date</h3>
+          </div>
+          <div class="col col-xs-6 text-right">
+          
+          <button mat-button 
+          style="margin: 5px; padding: 5px;" 
+          (click)="exporter3.exportTable('csv')">
+          Export
+          </button>            
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card-body">
+        <table mat-table [dataSource]="dataSource3" matSort
+        matTableExporter
+        #exporter3="matTableExporter">
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nagar Name</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+          </ng-container>
+
+     
+          <ng-container matColumnDef="district">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>District Id</th>
+            <td mat-cell *matCellDef="let element">{{element.district}}</td>
+          </ng-container>
+
+    
+       <ng-container matColumnDef="prant">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Pranta</th>
+            <td mat-cell *matCellDef="let element">{{element.prant}}</td>
+       </ng-container>
+
+       <ng-container matColumnDef="families">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Families</th>
+            <td mat-cell *matCellDef="let element">{{element.families}}</td>
+       </ng-container>
+
+       <ng-container matColumnDef="karyakartas">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Karyakartas</th>
+            <td mat-cell *matCellDef="let element">{{element.karyakartas}}</td>
+       </ng-container>
+
+       <ng-container matColumnDef="village">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Vastis Reached</th>
+            <td mat-cell *matCellDef="let element">{{element.village}}</td>
+       </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <h3>Dashboard (Talukas and Nagars)</h3>
+
+  <h4>Talukas</h4>
+  <ng-container *ngFor="let t of talukaList">
+
+        <app-taluka-detail [currTaluka]="t">
+          
+        </app-taluka-detail>  
+
+        <br>
+
+  </ng-container>
+  <br>
+  <h4>Nagars</h4>
+  <ng-container *ngFor="let n of nagarList">
+
+        <app-nagar-detail [currNagar]="n">
+          
+        </app-nagar-detail>  
+
+        <br>
+
+  </ng-container>
+
+
+
+</div>

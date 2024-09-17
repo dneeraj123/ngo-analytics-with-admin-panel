@@ -1,0 +1,30 @@
+<div class="container">
+  <header class="jumbotron">
+    <h2>
+    	<strong>Username: {{currentUser.username}}</strong>
+    	<br>
+        Welcome to Ram JanmBhoomi Application
+    </h2>
+
+    <h4>
+    Prant: Devagiri Prant
+	</h4>
+
+    <h4 *ngIf="currentUser.district">
+    Your District: {{currentUser.district.name}}
+	</h4>
+
+    <h4 *ngIf="currentUser.taluka">
+    Your Taluka: {{currentUser.taluka.name}}
+	</h4>
+
+    <h4 *ngIf="currentUser.nagar">
+    Your Nagar: {{currentUser.nagar.name}}
+	</h4>
+
+  </header>
+
+
+
+  <a class="btn btn-link log-out" (click)="logOut()">LogOut</a>
+</div>
