@@ -2,7 +2,7 @@
 
 This is a NGO statistics app having admin panel, custom user roles and uses Angular in Frontend. Back end is separately designed and is in spring boot.
 
-## Project Succes
+## Project Success
 
 This project was sucesfully used by over 1000 people in production and the NGO successfully carried out the tasks with the help of this application.
 
